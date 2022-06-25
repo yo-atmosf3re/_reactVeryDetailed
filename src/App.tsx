@@ -27,6 +27,7 @@ function App() {
       <br />
       <Accordion titleValue='-- Settings --' collapsed={accordionCollapsed} onClick={setAccordionCollapsed} />
       <UncontrolledOnOff onChange={setSwitchOn} /> {swithOn.toString()}
+      <UncontrolledOnOff onChange={setSwitchOn} /> {swithOn.toString()}git
 
       {/* <Rating value={ratingValue} onClick={setRatingValue} /> */}
       {/* <Rating value={3} /> */}
