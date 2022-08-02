@@ -17,6 +17,10 @@ const purpleBorder = {
    'border': '2px solid purple',
    'margin': '5px 0 0 0',
 }
+const orangeBorder = {
+   'border': '2px solid orange',
+   'margin': '5px 0 0 0',
+}
 
 function UncontrolledInput() {
    return (
@@ -57,5 +61,37 @@ export function ControlledInputWithFixedValue() {
       <input value={'hello'} style={greenBorder} />
    );
 }
+
+export function ControlledInput() {
+   const [parentValue, setParentValue] = useState('')
+   let changeInputValue = (e: ChangeEvent<HTMLInputElement>) => setParentValue(e.currentTarget.value)
+   return (
+      <>
+         <input style={orangeBorder} value={parentValue} onChange={changeInputValue} />
+         {parentValue}
+      </>
+   );
+}
+
+export function ControlledCheckbox() {
+   let [parentValue, setParentValue] = useState(true)
+   let changeValueCheckbox = (e: ChangeEvent<HTMLInputElement>) => setParentValue(e.currentTarget.checked)
+   return (
+      <input type='checkbox' style={orangeBorder} checked={parentValue} onChange={changeValueCheckbox} />
+   );
+}
+
+export function ControlledSelect() {
+   let [parentValue, setParentValue] = useState<string | undefined>(undefined);
+   let changeValueSelect = (e: ChangeEvent<HTMLSelectElement>) => setParentValue(e.currentTarget.value)
+   return (
+      <select value={parentValue} onChange={changeValueSelect}>
+         <option value={"1"}>Moscow</option>
+         <option value={"2"}>Minsk</option>
+         <option value={"5"}>Kiev</option>
+      </select>
+   );
+}
+
 
 export default UncontrolledInput;

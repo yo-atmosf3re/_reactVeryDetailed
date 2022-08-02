@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { isPropertySignature } from 'typescript';
 import './App.css';
 import Accordion from './components/Accordion/Accordion';
-import UncontrolledInput, { ControlledInputWithFixedValue, GetValueUncontrolledInput, TrackValueOfUncontrolledInput } from './components/input';
+import UncontrolledInput, { ControlledCheckbox, ControlledInput, ControlledInputWithFixedValue, ControlledSelect, GetValueUncontrolledInput, TrackValueOfUncontrolledInput } from './components/input';
 import OnOff from './components/OnOff/OnOff';
 import { Rating, RatingValueType } from './components/Raiting/Raiting';
 import UncontrolledAccordion from './components/SelfControlledAccordion/UncontrolledAccordion';
@@ -27,6 +27,12 @@ function App() {
       <ControlledInputWithFixedValue />
       <br />
       <GetValueUncontrolledInput />
+      <br />
+      <ControlledInput />
+      <br />
+      <ControlledCheckbox />
+      <br />
+      <ControlledSelect />
       {/* <OnOff on={swithOn} onChange={setSwitchOn} /> */}
       {/* <UncontrolledAccordion titleValue='-- Menu --' />
       <UncontrolledAccordion titleValue='-- User --' /> */}
