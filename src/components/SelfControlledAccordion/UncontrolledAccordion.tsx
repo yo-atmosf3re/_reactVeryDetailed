@@ -1,11 +1,11 @@
 import { useState } from "react";
 
-type UncontrolledAccordionPropsType = {
+export type UncontrolledAccordionPropsType = {
    titleValue: string
    // collapsed: boolean
 }
 
-function UncontrolledAccordion(props: UncontrolledAccordionPropsType) {
+export function UncontrolledAccordion(props: UncontrolledAccordionPropsType) {
    let [collapsed, setCollapsed] = useState(true)
 
    return (

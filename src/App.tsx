@@ -20,16 +20,16 @@ function App() {
   return (
     <div className='App'>
       <OnOff on={swithOn} onChange={setSwitchOn} />
-      <UncontrolledAccordion titleValue='-- Menu --' />
-      <UncontrolledAccordion titleValue='-- User --' />
+      {/* <UncontrolledAccordion titleValue='-- Menu --' />
+      <UncontrolledAccordion titleValue='-- User --' /> */}
       <br />
-      <SelfControlledRating />
-      <br />
+      {/* <SelfControlledRating onChange={ } /> */}
+      {/* <br />
       <Accordion titleValue='-- Settings --' collapsed={accordionCollapsed} onClick={setAccordionCollapsed} />
-      <UncontrolledOnOff onChange={setSwitchOn} /> {swithOn.toString()}
-      <UncontrolledOnOff onChange={setSwitchOn} /> {swithOn.toString()}git
+      <UncontrolledOnOff onChange={setSwitchOn} /> {swithOn.toString()} */}
 
       {/* <Rating value={ratingValue} onClick={setRatingValue} /> */}
+
       {/* <Rating value={3} /> */}
       {/* <Accordion titleValue='Menu!' collapsed={true} />
       <Accordion titleValue='User' collapsed={false} />
@@ -37,6 +37,7 @@ function App() {
       <Rating value={2} />
       <Rating value={4} />
       <Rating value={5} /> */}
+      {/* <SelfControlledRating onChange={ } /> */}
     </div>
   );
 }

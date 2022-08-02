@@ -1,31 +1,42 @@
 import { Dispatch, SetStateAction } from "react"
 
-type AccordionPropsType = {
+export type AccordionPropsType = {
+   /** Title of list */
    titleValue: string
+   /** 
+   * This condition of list, boolean
+   */
    collapsed: boolean
+   /** Callback responsible for opening and closing the list */
    onClick: Dispatch<SetStateAction<boolean>>
+   /** Color of header text */
+   color?: string
 }
 
-function Accordion(props: AccordionPropsType) {
+export function Accordion(props: AccordionPropsType) {
 
    return (
       <div>
-         <AccordionTitle title={props.titleValue} onClick={props.onClick} collapsed={props.collapsed} />
+         <AccordionTitle color={props.color} title={props.titleValue} onClick={props.onClick} collapsed={props.collapsed} />
          {!props.collapsed && <AccordionBody />}
       </div>
    )
 
 }
 
-type AccordionTitlePropsType = {
+export type AccordionTitlePropsType = {
    title: string
    onClick: Dispatch<SetStateAction<boolean>>
    collapsed: boolean
+   color?: string
 }
 
 export function AccordionTitle(props: AccordionTitlePropsType) {
    return (
-      <h3 onClick={() => { props.onClick(props.collapsed == true ? false : true) }}>{props.title}</h3>
+      <h3 style={{
+         color: props.color ? props.color : 'black'
+      }}
+         onClick={(e) => { props.onClick(props.collapsed == true ? false : true) }}> {props.title}</h3 >
    )
 }
 

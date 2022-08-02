@@ -31,3 +31,5 @@ export function Star(props: StarPropsType) {
       {props.selected === true ? <b>star </b> : "star "}
    </span>
 }
+
+export default Rating
