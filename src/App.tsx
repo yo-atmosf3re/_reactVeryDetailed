@@ -1,11 +1,12 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
 import { isPropertySignature } from 'typescript';
 import './App.css';
 import Accordion from './components/Accordion/Accordion';
 import UncontrolledInput, { ControlledCheckbox, ControlledInput, ControlledInputWithFixedValue, ControlledSelect, GetValueUncontrolledInput, TrackValueOfUncontrolledInput } from './components/input';
 import OnOff from './components/OnOff/OnOff';
 import { Rating, RatingValueType } from './components/Raiting/Raiting';
+import Select from './components/Select/Select';
 import UncontrolledAccordion from './components/SelfControlledAccordion/UncontrolledAccordion';
 import { SelfControlledRating } from './components/SelfControlledRaiting/SelfControlledRaiting';
 import UncontrolledOnOff from './components/UncontrolledOnOff/UncontrolledOnOff';
@@ -17,8 +18,27 @@ function App() {
   let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
   let [swithOn, setSwitchOn] = useState<boolean>(false)
   let onClickLiHandler = (id: any) => {
-    alert(`user with ID ${id} should be happy`)
+    alert(`user with ID ${id} should be happy!`)
   }
+
+
+  let [select, setSelect] = useState<boolean>(false)
+  let [currentSelect, setCurrentSelect] = useState<string | undefined>(undefined);
+  let changeValueSelect = (e: FormEvent<HTMLDivElement>) => setCurrentSelect(e.target.value)
+  const items = [
+    {
+      title: 'Moscow',
+      value: 1
+    },
+    {
+      title: 'Minsk',
+      value: 2
+    },
+    {
+      title: 'Kiev',
+      value: 3
+    },
+  ]
 
 
   return (
@@ -36,6 +56,7 @@ function App() {
       <ControlledCheckbox />
       <br />
       <ControlledSelect /> */}
+      <Select value={currentSelect} onChange={changeValueSelect} onClick={setSelect} items={items} select={select} />
       <Accordion items={[{ title: 'Alex', value: 1, }, { title: 'Dima', value: 2, }, { title: 'Misha', value: 3, }, { title: 'Lena', value: 4, },]} titleValue='Users' collapsed={accordionCollapsed} onClick={setAccordionCollapsed} OnClickLiHandler={onClickLiHandler} />
       {/* <OnOff on={swithOn} onChange={setSwitchOn} /> */}
       {/* <UncontrolledAccordion titleValue='-- Menu --' />
