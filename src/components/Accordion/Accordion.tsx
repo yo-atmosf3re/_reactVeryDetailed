@@ -1,16 +1,17 @@
 import { Dispatch, SetStateAction } from "react"
 
+type ItemType = {
+   title: string
+   value: any
+}
+
 export type AccordionPropsType = {
-   /** Title of list */
    titleValue: string
-   /** 
-   * This condition of list, boolean
-   */
    collapsed: boolean
-   /** Callback responsible for opening and closing the list */
    onClick: Dispatch<SetStateAction<boolean>>
-   /** Color of header text */
    color?: string
+   items: Array<ItemType>
+   OnClickLiHandler: (value: any) => void
 }
 
 export function Accordion(props: AccordionPropsType) {
@@ -18,7 +19,7 @@ export function Accordion(props: AccordionPropsType) {
    return (
       <div>
          <AccordionTitle color={props.color} title={props.titleValue} onClick={props.onClick} collapsed={props.collapsed} />
-         {!props.collapsed && <AccordionBody />}
+         {!props.collapsed && <AccordionBody OnClickLiHandler={props.OnClickLiHandler} items={props.items} />}
       </div>
    )
 
@@ -40,14 +41,15 @@ export function AccordionTitle(props: AccordionTitlePropsType) {
    )
 }
 
-export function AccordionBody() {
+export type AccordionBodyPropsType = {
+   items: Array<ItemType>
+   OnClickLiHandler: (value: any) => void
+}
+
+export function AccordionBody(props: AccordionBodyPropsType) {
    return (
       <div>
-         <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-         </ul>
+         {props.items.map((i, index) => <li onClick={() => { props.OnClickLiHandler(i.value) }} key={index}>{i.title}</li>)}
       </div>
    )
 }

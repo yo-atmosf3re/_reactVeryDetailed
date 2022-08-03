@@ -16,11 +16,14 @@ function App() {
   let [ratingValue, setRatingValue] = useState<RatingValueType>(0)
   let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
   let [swithOn, setSwitchOn] = useState<boolean>(false)
+  let onClickLiHandler = (id: any) => {
+    alert(`user with ID ${id} should be happy`)
+  }
 
 
   return (
     <div className='App'>
-      <UncontrolledInput />
+      {/* <UncontrolledInput />
       <br />
       <TrackValueOfUncontrolledInput />
       <br />
@@ -32,7 +35,8 @@ function App() {
       <br />
       <ControlledCheckbox />
       <br />
-      <ControlledSelect />
+      <ControlledSelect /> */}
+      <Accordion items={[{ title: 'Alex', value: 1, }, { title: 'Dima', value: 2, }, { title: 'Misha', value: 3, }, { title: 'Lena', value: 4, },]} titleValue='Users' collapsed={accordionCollapsed} onClick={setAccordionCollapsed} OnClickLiHandler={onClickLiHandler} />
       {/* <OnOff on={swithOn} onChange={setSwitchOn} /> */}
       {/* <UncontrolledAccordion titleValue='-- Menu --' />
       <UncontrolledAccordion titleValue='-- User --' /> */}
