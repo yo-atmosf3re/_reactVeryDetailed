@@ -14,17 +14,6 @@ export type AccordionPropsType = {
    OnClickLiHandler: (value: any) => void
 }
 
-export function Accordion(props: AccordionPropsType) {
-
-   return (
-      <div>
-         <AccordionTitle color={props.color} title={props.titleValue} onClick={props.onClick} collapsed={props.collapsed} />
-         {!props.collapsed && <AccordionBody OnClickLiHandler={props.OnClickLiHandler} items={props.items} />}
-      </div>
-   )
-
-}
-
 export type AccordionTitlePropsType = {
    title: string
    onClick: Dispatch<SetStateAction<boolean>>
@@ -32,18 +21,27 @@ export type AccordionTitlePropsType = {
    color?: string
 }
 
+export type AccordionBodyPropsType = {
+   items: Array<ItemType>
+   OnClickLiHandler: (value: any) => void
+}
+
+export function Accordion(props: AccordionPropsType) {
+   return (
+      <div>
+         <AccordionTitle color={props.color} title={props.titleValue} onClick={props.onClick} collapsed={props.collapsed} />
+         {!props.collapsed && <AccordionBody OnClickLiHandler={props.OnClickLiHandler} items={props.items} />}
+      </div>
+   )
+}
+
 export function AccordionTitle(props: AccordionTitlePropsType) {
    return (
       <h3 style={{
          color: props.color ? props.color : 'black'
       }}
-         onClick={(e) => { props.onClick(props.collapsed == true ? false : true) }}> {props.title}</h3 >
+         onClick={() => { props.onClick(props.collapsed == true ? false : true) }}> {props.title}</h3 >
    )
-}
-
-export type AccordionBodyPropsType = {
-   items: Array<ItemType>
-   OnClickLiHandler: (value: any) => void
 }
 
 export function AccordionBody(props: AccordionBodyPropsType) {

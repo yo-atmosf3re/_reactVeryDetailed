@@ -1,0 +1,14 @@
+.select {
+   max-width: 100px;
+   display: inline;
+}
+
+.select div {
+   border: 1px solid black;
+}
+
+.selectblock div{
+   display: inline;
+   max-width: 100px;
+   height: 100px;
+}
