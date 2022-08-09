@@ -1,0 +1,15 @@
+.select {
+   display: block;
+   max-width: 80px;
+   padding: 2px;
+   text-align: center;
+   border: 1px solid rgba(0, 0, 0, 0.267);
+}
+
+.items .active {
+   position: absolute;
+   top: 43px;
+   left: 86px;
+   padding: 5px 12px;
+   border: 1px solid rgba(0, 0, 0, 0.267);
+}
