@@ -4,12 +4,22 @@
    padding: 2px;
    text-align: center;
    border: 1px solid rgba(0, 0, 0, 0.267);
+   -webkit-box-shadow: 1px 0px 8px 1px rgba(7, 7, 7, 0.1);
+   -moz-box-shadow: 1px 0px 8px 1px rgba(7, 7, 7, 0.1);
+   box-shadow: 1px 0px 8px 1px rgba(7, 7, 7, 0.1);
 }
 
-.items .active {
+.select.active {
+   color: blue;
    position: absolute;
+   z-index: 100;
    top: 43px;
    left: 86px;
    padding: 5px 12px;
-   border: 1px solid rgba(0, 0, 0, 0.267);
+   border: none;
+}
+
+.select.selected {
+   background-color: rgba(7, 7, 7, 0.1);
+   border: 0;
 }

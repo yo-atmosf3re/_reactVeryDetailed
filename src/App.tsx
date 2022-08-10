@@ -3,7 +3,7 @@ import * as React from 'react';
 import { StepButton } from 'material-ui/Stepper';
 import { ChangeEvent, FormEvent, useState } from 'react';
 import './App.css';
-import SelectTown from './components/Select/Select';
+import SelectTown, { ItemsType, ItemType } from './components/Select/Select';
 
 function App() {
   let itemsAc = [
@@ -13,8 +13,7 @@ function App() {
 
   let [collapsed, setCollapsed] = useState<boolean>(true)
   let [titleTown, setTitleTown] = useState('Select town')
-  let changeValueSelect = () => alert('select')
-  const items = [
+  const items: ItemsType = [
     {
       title: 'Moscow',
       value: 1

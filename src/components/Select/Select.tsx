@@ -4,10 +4,14 @@ import { SelectChangeEvent } from "@mui/material/Select/SelectInput";
 import s from './Select.module.css'
 import React, { Dispatch, SetStateAction, useState } from "react";
 
-type ItemType = {
+export type ItemsType = Array<ItemType>
+
+export type ItemType = {
+   value: number
    title: string
-   value: any
+
 }
+
 type SelectPropsType = {
    setTitleTown: Dispatch<SetStateAction<string>>
    titleTown: string
@@ -17,11 +21,8 @@ type SelectPropsType = {
 }
 
 function SelectTown(props: SelectPropsType) {
-   let titleItem = props.items.map(i => <div onClick={() => props.setTitleTown(i.title)}>{i.title}</div>)
-   let titleItemCurrent = () => {
-      titleItem.map(tI => <div>{tI}</div>)
-
-   }
+   const selectedItem = props.items.find(i => i.title === props.titleTown)
+   let titleItem = props.items.map(i => <div className={s.select + ' ' + (props.titleTown === i.title ? s.selected : ' ')} onClick={() => props.setTitleTown(i.title)}>{i.title}</div>)
    let onClickOnSelectHandler = () => {
       props.setCollapsed(!props.collapsed)
       setActive(!active)
@@ -40,15 +41,11 @@ function SelectTown(props: SelectPropsType) {
 
    return (<div>
       <div className={s.select} tabIndex={0} onClick={onClickOnSelectHandler} onBlur={() => { onBlurSelectTownHandler() }}>
-         <div>{props.titleTown}</div>
-         <div onClick={titleItemCurrent}></div>
-         {
-            active &&
-            <div className={s.items}>{!props.collapsed && <div>{titleItem}</div>}</div>
-         }
+         <div >{props.titleTown}</div>
+         {props.collapsed && <div>{titleItem}</div>}
       </div>
       <div>
-         {/* <Box>
+         <Box>
             <FormControl fullWidth={true}>
                <InputLabel id='demo-simple-select-standard-label'>Town</InputLabel>
                <Select
@@ -62,7 +59,7 @@ function SelectTown(props: SelectPropsType) {
                   <MenuItem value={'Minsk'}>Minsk</MenuItem>
                </Select>
             </FormControl>
-         </Box> */}
+         </Box>
       </div>
    </div >);
 }
