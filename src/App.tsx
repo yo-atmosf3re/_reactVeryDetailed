@@ -11,10 +11,6 @@ function App() {
     { title: 'Alex', value: 1, }, { title: 'Dima', value: 2, }, { title: 'Misha', value: 3, }, { title: 'Lena', value: 4, },
   ]
   let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
-
-
-
-
   return (
     <div className='App'>
       <UncontrolledAccordion titleValue='--Users--' />
