@@ -9,7 +9,6 @@ export type ItemsType = Array<ItemType>
 export type ItemType = {
    value: number
    title: string
-
 }
 
 type SelectPropsType = {
@@ -19,6 +18,24 @@ type SelectPropsType = {
    collapsed: boolean
    setCollapsed: Dispatch<SetStateAction<boolean>>
 }
+
+// То, что должно быть в APP.tsx Для корретной работы
+// let [collapsed, setCollapsed] = useState<boolean>(true)
+// let [titleTown, setTitleTown] = useState('Select town')
+// const items: ItemsType = [
+//   {
+//     title: 'Moscow',
+//     value: 1
+//   },
+//   {
+//     title: 'Minsk',
+//     value: 2
+//   },
+//   {
+//     title: 'Kiev',
+//     value: 3
+//   },
+// ]
 
 function SelectTown(props: SelectPropsType) {
    const selectedItem = props.items.find(i => i.title === props.titleTown)
