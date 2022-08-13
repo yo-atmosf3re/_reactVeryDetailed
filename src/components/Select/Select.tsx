@@ -9,6 +9,8 @@ export type ItemsType = Array<ItemType>
 export type ItemType = {
    value: number
    title: string
+   country: string
+   population: number
 }
 
 type SelectPropsType = {
@@ -20,6 +22,7 @@ type SelectPropsType = {
 }
 
 // То, что должно быть в APP.tsx Для корретной работы
+//
 // let [collapsed, setCollapsed] = useState<boolean>(true)
 // let [titleTown, setTitleTown] = useState('Select town')
 // const items: ItemsType = [
@@ -62,21 +65,6 @@ function SelectTown(props: SelectPropsType) {
          {props.collapsed && <div>{titleItem}</div>}
       </div>
       <div>
-         <Box>
-            <FormControl fullWidth={true}>
-               <InputLabel id='demo-simple-select-standard-label'>Town</InputLabel>
-               <Select
-                  labelId="demo-simple-select-standard-label"
-                  id='demo-simple-select-standard'
-                  value={town}
-                  label='Town'
-                  onChange={handleChange}>
-                  <MenuItem value={'Moscow'}>Moscow</MenuItem>
-                  <MenuItem value={'Kiev'}>Kiev</MenuItem>
-                  <MenuItem value={'Minsk'}>Minsk</MenuItem>
-               </Select>
-            </FormControl>
-         </Box>
       </div>
    </div >);
 }
