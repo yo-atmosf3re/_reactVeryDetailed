@@ -1,9 +1,8 @@
 import * as React from 'react';
 import { useState } from 'react';
 import './App.css';
+import { LikeUseCallback, UseMemoFactorialCounter } from './components/LikeUseCallback';
 import Select, { ItemsType } from './components/Select/Select';
-import { Example } from './components/UseMemo';
-import { UseMemoFactorialCounter } from './components/UseMemo';
 
 function App() {
   let [collapsed, setCollapsed] = useState<boolean>(true)
@@ -76,12 +75,7 @@ function App() {
   return (
     <div className='App'>
       {/* <UseMemoFactorialCounter /> */}
-      {/* <Example /> */}
-      <Select titleTown={titleTown} collapsed={collapsed} items={newItemsFilteredLetters} setCollapsed={setCollapsed} setTitleTown={setTitleTown} />
-      <hr />
-      <Select titleTown={titleTown} collapsed={collapsed} items={newItemsFiltredPopulation} setCollapsed={setCollapsed} setTitleTown={setTitleTown} />
-      <hr />
-      <Select titleTown={titleTown} collapsed={collapsed} items={newItemsFiltredCountry} setCollapsed={setCollapsed} setTitleTown={setTitleTown} />
+      <LikeUseCallback />
     </div>
   );
 }
