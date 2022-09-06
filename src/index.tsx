@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+const time = new Date().toLocaleTimeString()
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
