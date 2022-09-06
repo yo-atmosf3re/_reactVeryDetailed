@@ -15,7 +15,6 @@ function SetTimeoutExample() {
       <div className="clock">
          <p className="date">{date}</p>
          <p className="time">{time}</p>
-         <p className="text">DIGITAL CLOCK with React.js</p>
       </div>
    );
 }
