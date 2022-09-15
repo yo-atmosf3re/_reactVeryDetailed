@@ -13,11 +13,9 @@ function App() {
 
   return (
     <div>
-      <Clock mode='digital' />
+      <Clock mode='analog' />
       <>
-        <button onClick={() => {
 
-        }}>switch</button>
       </>
     </div>
   );
